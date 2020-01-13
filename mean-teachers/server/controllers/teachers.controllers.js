@@ -19,11 +19,20 @@ teachersCtrl.getTeacher=async (req,res)=>{
     res.json(teacher);
 };
 
-teachersCtrl.editTeacher=()=>{
-
+teachersCtrl.editTeacher=async (req,res)=>{
+    const {id}=req.params;
+    const teacher={
+        name:req.params.name,
+        surname:req.params.surname,
+        area:req.params.area,
+        salary:req.params.salary
+    };
+    await Teacher.findByIdAndUpdate(id,{$set:teacher},{new:true});
+    res.json({status:"Editado"});
 }
 
-teachersCtrl.deleteTeacher=()=>{
-
+teachersCtrl.deleteTeacher=async (req,res)=>{
+    await Teacher.findByIdAndDelete(req.params.id);
+    res.json({status:"Delete"});
 }
 module.exports=teachersCtrl;
