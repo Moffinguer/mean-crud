@@ -8,5 +8,5 @@ router.get("/",teacherCtrl.getTeachers);
 router.post("/",teacherCtrl.createTeacher);
 router.get("/:id",teacherCtrl.getTeacher);
 router.put("/:id",teacherCtrl.editTeacher);
-router.delete("/id:",teacherCtrl.deleteTeacher);
+router.delete("/:id",teacherCtrl.deleteTeacher);
 module.exports=router;
