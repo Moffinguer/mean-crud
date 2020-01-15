@@ -4,7 +4,6 @@ const vehicleController=require("../controllers/vehicles.controllers");
 
 router.get("/",vehicleController.getVehicles);
 router.get("/:id",vehicleController.getVehicleById);
-router.post("/",vehicleController.createVehicle);
 router.put("/:id",vehicleController.editVehicle);
 router.delete("/:id",vehicleController.deleteVehicle);
 module.exports=router;

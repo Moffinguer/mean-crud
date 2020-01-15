@@ -4,9 +4,6 @@ vehicleController.getVehicles= async (req,res)=>{
     
 
 };
-vehicleController.createVehicle=async (req,res)=>{
-    
-};
 
 vehicleController.getVehicleById=async (req,res)=>{
     
