@@ -22,10 +22,10 @@ teachersCtrl.getTeacher=async (req,res)=>{
 teachersCtrl.editTeacher=async (req,res)=>{
     const {id}=req.params;
     const teacher={
-        name:req.params.name,
-        surname:req.params.surname,
-        area:req.params.area,
-        salary:req.params.salary
+        name:req.body.name,
+        surname:req.body.surname,
+        area:req.body.area,
+        salary:req.body.salary
     };
     await Teacher.findByIdAndUpdate(id,{$set:teacher},{new:true});
     res.json({status:"Editado"});
