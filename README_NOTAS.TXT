@@ -1,0 +1,1 @@
+Es recomendable crear los modelos, ya que son lo más trivial, posteriormente cada componente. Tras eso los servicios, que gestionan las peticiones a la base de datos que tengamos
