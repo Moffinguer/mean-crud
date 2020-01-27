@@ -1,1 +1,80 @@
-<p>buyers works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #buyerForm="ngForm" (ngSubmit)="addBuyer(buyerForm)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="buyerService.selectedBuyer._id" />
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="name" #name="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.name" placeholder="Enter ur name" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="surname" #surname="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.surname" placeholder="Enter ur surname" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="idSeller" #idSeller="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.idSeller"
+                                    placeholder="Enter ur seller Id" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="email" #email="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.email" placeholder="Enter ur email" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="dni" #dni="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.dni" placeholder="Enter ur dni" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="phoneNumber" #phoneNumber="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.phoneNumber"
+                                    placeholder="Enter ur phone number" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="idVehicleToBuy" #idVehicleToBuy="ngModel"
+                                    [(ngModel)]="buyerService.selectedBuyer.idVehicleToBuy"
+                                    placeholder="Enter ur id of the vehicle" />
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn" (click)="resetForm(buyerForm)">
+                                        Clean
+                                    </button>
+                                    <button class="btn right">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <div class="row">
+                <div class="col s2">Name</div>
+                <div class="col s2">idSeller</div>
+                <div class="col s3">email</div>
+                <div class="col s1">dni</div>
+                <div class="col s1">phone</div>
+                <div class="col s1">idVehicle</div>
+                <div class="col s2">Edit/Delete</div>
+            </div>
+            <div *ngFor="let buyer of buyerService.buyers">
+                <div class="row">
+                    <div class="col s2">{{buyer.name}},{{ buyer.surname}}</div>
+                    <div class="col s2">{{buyer.idSeller}}</div>
+                    <div class="col s3">{{buyer.email}}</div>
+                    <div class="col s1">{{buyer.dni}}</div>
+                    <div class="col s1">{{buyer.phoneNumber}}</div>
+                    <div class="col s1">{{buyer.idVehicleToBuy}}</div>
+                    <div class="col s2"><a (click)="editBuyer(buyer)">
+                        <i class="material-icons">edit</i>
+                    </a><a (click)="deleteBuyer(buyer._id)">
+                        <i class="material-icons">delete</i>
+                    </a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

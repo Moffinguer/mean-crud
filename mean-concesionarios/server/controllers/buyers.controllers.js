@@ -5,7 +5,16 @@ BuyerController.getBuyers = async (req, res) => {
   res.json(buyer);
 };
 BuyerController.createBuyer = async (req, res) => {
-  const buyer = new Buyer(req.body);
+  const buyer = new Buyer({
+    name:req.body.name,
+    surname:req.body.surname,
+    idSeller:req.body.idSeller,
+    phoneNumber:req.body.phoneNumber,
+    email:req.body.email,
+    minMoney:req.body.minMoney,
+    idVehicleToBuy:req.body.idVehicleToBuy,
+    dni:req.body.dni
+  });
   await buyer.save();
   res.json({
     status: "Buyer saved"

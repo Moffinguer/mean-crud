@@ -32,7 +32,6 @@ export class TeachersComponent implements OnInit {
           M.toast({html:"Teacher Save succesfully"});   
           this.getTeachers();
         });
-
     }
   }
   resetForm(form:NgForm){

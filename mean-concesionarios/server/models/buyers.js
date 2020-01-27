@@ -8,6 +8,6 @@ const BuyerSchema = new Schema({
     phoneNumber: { type: String, required: false },
     email: { type: String, required: true },
     minMoney:{type: Number,required:false},
-    idVehicleToBuy:{type:Number,required:false}
+    idVehicleToBuy:{type:String,required:false}
 });
 module.exports = mongoose.model("Buyer", BuyerSchema);

@@ -1,6 +1,6 @@
-import { Sellers } from './sellers';
+import { Sellers} from './sellers';
 
-describe('Sellers', () => {
+describe('Sellerss', () => {
   it('should create an instance', () => {
     expect(new Sellers()).toBeTruthy();
   });
