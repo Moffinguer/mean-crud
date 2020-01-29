@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #carForm="ngForm" (ngSubmit)="addCar(carForm)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="carService.selectedCar._id" />
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="idCar" #idCar="ngModel"
+                                    [(ngModel)]="carService.selectedCar.idCar" placeholder="Enter ur idCar" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="doors" #doors="ngModel"
+                                    [(ngModel)]="carService.selectedCar.doors" placeholder="Enter ur doors" />
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn" (click)="resetForm(carForm)">
+                                        Clean
+                                    </button>
+                                    <button class="btn right">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>idCar</th>
+                    <th>Doors</th>
+                    <th>Edit/Delete</th>
+                </thead>
+            </table>
+            <div *ngFor="let car of carService.car">
+                <tbody>
+                    <td>{{car.idCar}}</td>
+                    <td>{{car.doors}}</td>
+                    <td><a (click)="editCar(car)">
+                            <i class="material-icons">edit</i>
+                        </a><a (click)="deleteCar(car._id)">
+                            <i class="material-icons">delete</i>
+                        </a>
+                </tbody>
+            </div>
+        </div>
+    </div>
+</div>

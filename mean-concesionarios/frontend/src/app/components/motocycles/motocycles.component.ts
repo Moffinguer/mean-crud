@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+import { Motocycles } from '../../models/motocycles';
+import { MotocyclesService } from '../../services/motocycles.service';
+import { NgForm } from '@angular/forms';
+declare var M:any;
+@Component({
+  selector: 'app-motocycles',
+  templateUrl: './motocycles.component.html',
+  styleUrls: ['./motocycles.component.css']
+})
+export class MotocyclesComponent implements OnInit {
+
+  constructor(private motocyclesService:MotocyclesService) { }
+
+  ngOnInit() {
+    this.getMotocycles();
+  }
+  resetForm(form: NgForm) {
+    if (form) {
+      form.reset();
+      this.motocyclesService.selectedMotocycle = new Motocycles();
+    }
+  }
+  getMotocycles() {
+    this.motocyclesService.getMoto().subscribe(res => {
+      this.motocyclesService.moto = res as Motocycles[];
+    })
+  }
+  editMotocycle(seller: Motocycles) {
+    this.motocyclesService.selectedMotocycle = seller;
+  }
+  addMotocycle(form: NgForm) {
+    if(form.value._id){
+      this.motocyclesService.editMoto(form.value).subscribe(res => {
+        this.resetForm(form);
+        M.toast({ html: "Moto edited correctly" });
+        this.getMotocycles();
+      })
+    }else{
+      this.motocyclesService.createMoto(form.value).subscribe(res => {
+        this.resetForm(form);
+        M.toast({ html: "Moto saved correctly" });
+        this.getMotocycles();
+    })
+  }
+}
+  deleteMotocycle(_id:string){
+    if(confirm("Are u sure u wanna delete this buyer")){
+      this.motocyclesService.deleteMoto(_id).subscribe(res=>{
+        M.toast({html:"Moto deleted succesfully"});
+        this.getMotocycles();
+      })
+    }
+  }
+
+}

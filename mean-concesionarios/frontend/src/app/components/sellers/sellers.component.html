@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #sellerForm="ngForm" (ngSubmit)="addSeller(sellerForm)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="sellerService.selectedSeller._id" />
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="name" #name="ngModel"
+                                    [(ngModel)]="sellerService.selectedSeller.name" placeholder="Enter ur name" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="surname" #surname="ngModel"
+                                    [(ngModel)]="sellerService.selectedSeller.surname" placeholder="Enter ur surname" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="rank" #rank="ngModel"
+                                    [(ngModel)]="sellerService.selectedSeller.rank"
+                                    placeholder="Enter ur rank" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="email" #email="ngModel"
+                                    [(ngModel)]="sellerService.selectedSeller.email" placeholder="Enter ur email" />
+                            </div>
+                            <div class="input-field col s12">
+                                <input type="text" name="phoneNumber" #phoneNumber="ngModel"
+                                    [(ngModel)]="sellerService.selectedSeller.phoneNumber"
+                                    placeholder="Enter ur phone number" />
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn" (click)="resetForm(sellerForm)">
+                                        Clean
+                                    </button>
+                                    <button class="btn right">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Rank</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>Edit/Delete</th>
+                </thead>
+            </table>
+            <div *ngFor="let seller of sellerService.sellers">
+                <tbody>
+                    <td>{{seller.name}}</td>
+                    <td>{{seller.surname}}</td>
+                    <td>{{seller.rank}}</td>
+                    <td>{{seller.phoneNumber}}</td>
+                    <td>{{seller.email}}</td>
+                    <td><a (click)="editSeller(seller)">
+                            <i class="material-icons">edit</i>
+                        </a><a (click)="deleteSeller(seller._id)">
+                            <i class="material-icons">delete</i>
+                        </a>
+                </tbody>
+            </div>
+        </div>
+    </div>
+</div>

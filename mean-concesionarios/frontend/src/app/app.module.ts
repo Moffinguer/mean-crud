@@ -7,13 +7,17 @@ import { BuyersComponent } from './components/buyers/buyers.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { SellersComponent } from './components/sellers/sellers.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CarsComponent } from './components/cars/cars.component';
+import { MotocyclesComponent } from './components/motocycles/motocycles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuyersComponent,
     VehiclesComponent,
-    SellersComponent
+    SellersComponent,
+    CarsComponent,
+    MotocyclesComponent
   ],
   imports: [
     BrowserModule,
