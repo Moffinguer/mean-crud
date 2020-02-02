@@ -1,5 +1,18 @@
 const Vehicle = require("../models/vehicles");
 const vehicleController = {};
+vehicleController.createVehicle = async (req, res) => {
+  const sell = new Vehicle({
+    marc: req.body.marc,
+    brand: req.body.brand,
+    model: req.body.model,
+    color: req.body.color,
+    type: req.body.type
+  });
+  await sell.save();
+  res.json({
+    status: "Vehicle saved"
+  });
+};
 vehicleController.getVehicles = async (req, res) => {
   const vehicles = await Vehicle.find();
   res.json(vehicles);

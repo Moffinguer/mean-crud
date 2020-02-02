@@ -5,7 +5,13 @@ sellerController.getSellers = async (req, res) => {
   res.json(sell);
 };
 sellerController.createSeller = async (req, res) => {
-  const sell = new Seller(req.body);
+  const sell = new Seller({
+    name: req.body.name,
+    surname: req.body.surname,
+    rank: req.body.rank,
+    phoneNumber: req.body.phoneNumber,
+    email: req.body.email
+  });
   await sell.save();
   res.json({
     status: "Seller saved"

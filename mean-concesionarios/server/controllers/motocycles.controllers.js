@@ -5,7 +5,10 @@ motocycleController.getMotocycles = async (req, res) => {
   res.json(moto);
 };
 motocycleController.createMotocycle = async (req, res) => {
-  const moto = new Motocycle(req.body);
+  const moto = new Motocycle({
+    idMoto: req.body.idMoto,
+    wheels: req.body.wheels
+  });
   await moto.save();
   res.json({
     status: "Moto saved"

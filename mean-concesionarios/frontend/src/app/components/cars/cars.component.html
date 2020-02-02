@@ -4,15 +4,15 @@
             <div class="card">
                 <div class="card-content">
                     <form #carForm="ngForm" (ngSubmit)="addCar(carForm)">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="carService.selectedCar._id" />
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="carsService.selectedCars._id" />
                         <div class="row">
                             <div class="input-field col s12">
                                 <input type="text" name="idCar" #idCar="ngModel"
-                                    [(ngModel)]="carService.selectedCar.idCar" placeholder="Enter ur idCar" />
+                                    [(ngModel)]="carsService.selectedCars.idCar" placeholder="Enter ur idCar" />
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" name="doors" #doors="ngModel"
-                                    [(ngModel)]="carService.selectedCar.doors" placeholder="Enter ur doors" />
+                                    [(ngModel)]="carsService.selectedCars.doors" placeholder="Enter ur doors" />
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">
@@ -35,7 +35,7 @@
                     <th>Edit/Delete</th>
                 </thead>
             </table>
-            <div *ngFor="let car of carService.car">
+            <div *ngFor="let car of carsService.car">
                 <tbody>
                     <td>{{car.idCar}}</td>
                     <td>{{car.doors}}</td>

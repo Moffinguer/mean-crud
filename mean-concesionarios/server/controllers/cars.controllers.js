@@ -5,7 +5,10 @@ carController.getCars = async (req, res) => {
   res.json(car);
 };
 carController.createCar = async (req, res) => {
-  const car = new Car(req.body);
+  const car = new Car({
+    idCar: req.body.idCar,
+    doors: req.body.doors
+  });
   await car.save();
   res.json({
     status: "Car saved"

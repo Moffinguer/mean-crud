@@ -16,8 +16,7 @@
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" name="rank" #rank="ngModel"
-                                    [(ngModel)]="sellerService.selectedSeller.rank"
-                                    placeholder="Enter ur rank" />
+                                    [(ngModel)]="sellerService.selectedSeller.rank" placeholder="Enter ur rank" />
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" name="email" #email="ngModel"
@@ -52,7 +51,7 @@
                     <th>Edit/Delete</th>
                 </thead>
             </table>
-            <div *ngFor="let seller of sellerService.sellers">
+            <div *ngFor="let seller of sellerService.seller">
                 <tbody>
                     <td>{{seller.name}}</td>
                     <td>{{seller.surname}}</td>

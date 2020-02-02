@@ -45,7 +45,7 @@ export class VehiclesComponent implements OnInit {
   }
 }
   deleteVehicle(_id:string){
-    if(confirm("Are u sure u wanna delete this buyer")){
+    if(confirm("Are u sure u wanna delete this vehicle")){
       this.vehicleService.deleteVehicle(_id).subscribe(res=>{
         M.toast({html:"Vehicle deleted succesfully"});
         this.getVehicles();

@@ -3,16 +3,19 @@
         <div class="col s5">
             <div class="card">
                 <div class="card-content">
-                    <form #motoForm="ngForm" (ngSubmit)="addMoto(motoForm)">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="motocyclesService.selectedMotocycle._id" />
+                    <form #motoForm="ngForm" (ngSubmit)="addMotocycle(motoForm)">
+                        <input type="hidden" name="_id" #_id="ngModel"
+                            [(ngModel)]="motocyclesService.selectedMotocycle._id" />
                         <div class="row">
                             <div class="input-field col s12">
                                 <input type="text" name="idMoto" #idMoto="ngModel"
-                                    [(ngModel)]="motocyclesService.selectedMotocycle.idMoto" placeholder="Enter ur idMoto" />
+                                    [(ngModel)]="motocyclesService.selectedMotocycle.idMoto"
+                                    placeholder="Enter ur idMoto" />
                             </div>
                             <div class="input-field col s12">
                                 <input type="text" name="wheels" #wheels="ngModel"
-                                    [(ngModel)]="motocyclesService.selectedMotocycle.wheels" placeholder="Enter ur wheels" />
+                                    [(ngModel)]="motocyclesService.selectedMotocycle.wheels"
+                                    placeholder="Enter ur wheels" />
                             </div>
                             <div class="card-action">
                                 <div class="input-field col s12">
@@ -39,9 +42,9 @@
                 <tbody>
                     <td>{{moto.idMoto}}</td>
                     <td>{{moto.wheels}}</td>
-                    <td><a (click)="editMoto(moto)">
+                    <td><a (click)="editMotocycle(moto)">
                             <i class="material-icons">edit</i>
-                        </a><a (click)="deleteMoto(moto._id)">
+                        </a><a (click)="deleteMotocycle(moto._id)">
                             <i class="material-icons">delete</i>
                         </a>
                 </tbody>
