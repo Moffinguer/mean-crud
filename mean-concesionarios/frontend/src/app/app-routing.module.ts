@@ -1,16 +1,20 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./views/home/home.component";
-import { BuyersComponent } from "./views/buyers/buyers.component";
-import { CarsComponent } from "./views/cars/cars.component";
-import { VehiclesComponent } from "./views/vehicles/vehicles.component";
-import { MotocyclesComponent } from "./views/motocycles/motocycles.component";
-import { SellersComponent } from "./views/sellers/sellers.component";
-
+import { BuyersComponent } from "./components/buyers/buyers.component";
+import { SellersComponent } from "./components/sellers/sellers.component";
+import { VehiclesComponent } from "./components/vehicles/vehicles.component";
+import { CarsComponent } from "./components/cars/cars.component";
+import { MotocyclesComponent } from "./components/motocycles/motocycles.component";
+import { ContactComponent } from "./views/contact/contact.component";
 const routes: Routes = [
   {
     path: "",
     component: HomeComponent
+  },
+  {
+    path: "Contact",
+    component: ContactComponent
   },
   { path: "home", component: HomeComponent },
   { path: "Buyers", component: BuyersComponent },
