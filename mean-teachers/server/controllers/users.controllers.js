@@ -1,6 +1,7 @@
 const User = require("../models/users");
 const bcrypt = require("bcrypt-nodejs");
 const userCtrl = {};
+const jwtService= require("../services/jwt.services");
 
 userCtrl.saveUser = (req, res) => {
   const user = new User();
@@ -44,7 +45,11 @@ userCtrl.loginUser=(req,res)=>{
             }else{
                 bcrypt.compare(password,user.password,(err,check)=>{
                     if(check){
-                        res.status(200).send({message:"Al gud"});
+                        if(params.getHash){
+                            res.status(200).send({token:jwtService.createToken(user)});
+                        }else{
+                            res.status(200).send({message:"Al gud without get hash"});
+                        }
                     }else{
                         res.status(404).send({message:"User not login"})
                     }
