@@ -31,4 +31,26 @@ userCtrl.saveUser = (req, res) => {
     res.status(200).send({ message: "Enter the password" });
   }
 };
+userCtrl.loginUser=(req,res)=>{
+    var params=req.body;
+    var email=params.email;
+    var password=params.password;
+    User.findOne({email:email.toLowerCase()},(err,user)=>{
+        if(err){
+            res.status(500).send({message:"Error en el cercer"});
+        }else{
+            if(!user){
+                res.status(404).send({message:"User not found"});
+            }else{
+                bcrypt.compare(password,user.password,(err,check)=>{
+                    if(check){
+                        res.status(200).send({message:"Al gud"});
+                    }else{
+                        res.status(404).send({message:"User not login"})
+                    }
+                });
+            }
+        }
+    });
+}
 module.exports = userCtrl;
