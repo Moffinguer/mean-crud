@@ -13,15 +13,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "Contact",
+    path: "contact",
     component: ContactComponent
   },
   { path: "home", component: HomeComponent },
-  { path: "Buyers", component: BuyersComponent },
-  { path: "Sellers", component: SellersComponent },
-  { path: "Vehicles", component: VehiclesComponent },
-  { path: "Cars", component: CarsComponent },
-  { path: "Motocycles", component: MotocyclesComponent }
+  { path: "buyers", component: BuyersComponent },
+  { path: "sellers", component: SellersComponent },
+  { path: "vehicles", component: VehiclesComponent },
+  { path: "cars", component: CarsComponent },
+  { path: "motocycles", component: MotocyclesComponent }
 ];
 
 @NgModule({
