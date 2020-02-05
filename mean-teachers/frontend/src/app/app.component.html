@@ -5,6 +5,10 @@
 </app-teachers> -->
 <div *ngIf="identity">
   <h1>Teachers App</h1>
+  <div>
+    Hi {{identity.name}} {{identity.surname}}.
+    <span><button class="btn btn-warning" (click)="logOut()">Salir</button></span>
+  </div>
   <app-menu></app-menu>
   <router-outlet></router-outlet>
 </div>
