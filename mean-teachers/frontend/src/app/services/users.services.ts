@@ -14,7 +14,10 @@ export class UserService{
         const httpOptions={
             headers:new HttpHeaders({"Content-Type":"application/json"}),
         };
-        return this.http.post(this.url+`users/login`,params,httpOptions);
+        console.log(params);
+        const res=this.http.post(this.url+'users/login',params,httpOptions);
+        console.log(res);
+        return res;
     }
     getIdentity(){
         const identity=JSON.parse(localStorage.getItem("identity"));
@@ -24,7 +27,7 @@ export class UserService{
         return this.identity;
       }
       getToken(){
-        const token=JSON.parse(localStorage.getItem("token"));
+        const token=localStorage.getItem("token");
         if(token!=null){
           this.token=token;
         }

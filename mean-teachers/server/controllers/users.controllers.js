@@ -45,7 +45,7 @@ userCtrl.loginUser=(req,res)=>{
             }else{
                 bcrypt.compare(password,user.password,(err,check)=>{
                     if(check){
-                        if(params.getHash){
+                        if(params.gethash){
                             res.status(200).send({token:jwtService.createToken(user)});
                         }else{
                             res.status(200).send({user});

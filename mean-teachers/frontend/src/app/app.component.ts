@@ -44,10 +44,11 @@ export class AppComponent {
             //Create element token
             localStorage.setItem("identity", JSON.stringify(identity));
             //get Token
+            console.log(params);
             this.userService.signUp(params).subscribe(
               res => {
                 console.log(this.token);
-                const token=res["token"];
+                const token=res['token'];
                 this.token=token;
                 console.log(this.token);
                 if(this.token.length<=0){
