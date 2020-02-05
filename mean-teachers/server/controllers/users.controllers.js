@@ -48,7 +48,7 @@ userCtrl.loginUser=(req,res)=>{
                         if(params.getHash){
                             res.status(200).send({token:jwtService.createToken(user)});
                         }else{
-                            res.status(200).send({message:"Al gud without get hash"});
+                            res.status(200).send({user});
                         }
                     }else{
                         res.status(404).send({message:"User not login"})
