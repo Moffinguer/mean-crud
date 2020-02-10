@@ -17,6 +17,9 @@ app.use("/api/buyer",require("./routers/buyers.routes"));
 app.use("/api/vehicles",require("./routers/vehicles.routes"));
 app.use("/api/car",require("./routers/cars.routes"));
 app.use("/api/motocycles",require("./routers/motocycles.routes"));
+
+app.use("/api/users",require("./routers/users.routes"));
+
 //Switch on Server
 app.listen(app.get("port"), () => {
   console.log("Servidor en el puerto "+app.get("port"));

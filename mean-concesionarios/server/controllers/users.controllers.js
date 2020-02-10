@@ -10,7 +10,6 @@ userCtrl.saveUser = (req, res) => {
   user.surname = params.surname;
   user.email = params.email;
   user.role = "ROLE_USER"; //NOTA, DEBEMOS CREAR UN USUARIO ADMINISTRADOR
-  user.image = "";
   if (params.password) {
     //Encripta y guarda los datos
     bcrypt.hash(params.password, null, null, (err, hash) => {

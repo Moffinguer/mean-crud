@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { User } from "./models/user";
 import { UserService } from "./services/users.services";
 import { NgForm } from "@angular/forms";
+import { Router } from '@angular/router';
 
 declare var M: any;
 
@@ -17,7 +18,7 @@ export class AppComponent {
   public user_register:User; // Usuario puente para crear los registros
   public identity = null;
   public token = null;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.user = new User("", "", "", "", "", "ROLE_USER", "");
     this.user_register= new User("", "", "", "", "", "ROLE_USER", "");
   }
@@ -53,7 +54,7 @@ export class AppComponent {
                 M.toast({ html: "Error Login" });
               } else {
                 localStorage.setItem("token", token);
-                // this.user = new User("", "", "", "", "", "ROLE_USER", "");
+                this.user = new User("", "", "", "", "", "ROLE_USER", "");
               }
             },
             err => {
@@ -75,6 +76,7 @@ export class AppComponent {
     localStorage.clear();
     this.identity = null;
     this.token = null;
+    this.router.navigate(["home"]);
     M.toast({ html: "Logout succesfully" });
   }
   onSubmitRegister(){
