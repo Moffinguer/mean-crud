@@ -43,7 +43,6 @@ export class TeachersComponent implements OnInit {
   getTeachers(){
     this.teacherService.getTeachers().subscribe(res=>{
       this.teacherService.teachers=res as Teacher[];
-      console.log(res);
     });
   }
   editTeacher(teacher:Teacher){

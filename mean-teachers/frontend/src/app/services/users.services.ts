@@ -14,9 +14,14 @@ export class UserService {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    console.log(params);
     const res = this.http.post(this.url + "users/login", params, httpOptions);
-    console.log(res);
+    return res;
+  }
+  register(params){
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
+    };
+    const res = this.http.post(this.url + "users/register", params, httpOptions);
     return res;
   }
   getIdentity() {
