@@ -13,17 +13,26 @@ export class SellersService {
   }
   getSellers(){
     const httpOptions = {
-      headers: new HttpHeaders({ "Content-Type": "application/json" })
+      headers: new HttpHeaders({ "Content-Type": "application/json", "Authorization":localStorage.getItem("token")})
     };
     return this.http.get(this.URI_API,httpOptions);
   }
   createSeller(seller:Sellers){
-    return this.http.post(this.URI_API,seller);    
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json", "Authorization":localStorage.getItem("token")})
+    };
+    return this.http.post(this.URI_API,seller,httpOptions);    
   }
   editSeller(seller:Sellers){
-    return this.http.put(this.URI_API+`/${seller._id}`,seller);
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json", "Authorization":localStorage.getItem("token")})
+    };
+    return this.http.put(this.URI_API+`/${seller._id}`,seller,httpOptions);
   }
   deleteSeller(_id:string){
-    return this.http.delete(this.URI_API+`/${_id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json", "Authorization":localStorage.getItem("token")})
+    };
+    return this.http.delete(this.URI_API+`/${_id}`,httpOptions);
   }
 }

@@ -13,7 +13,8 @@ export class TeachersService {
    }
   getTeachers(){
     const httpOptions = {
-      headers: new HttpHeaders({ "Content-Type": "application/json" })
+      headers: new HttpHeaders({ "Content-Type": "application/json" ,
+    "Authorization":localStorage.getItem("token")})
     };
     return this.http.get(this.URI_API,httpOptions);
   }
