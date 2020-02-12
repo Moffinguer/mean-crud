@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicles } from '../../models/vehicles';
 import { VehiclesService } from '../../services/vehicles.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
+import {FormBuilder, Validators } from "@angular/forms";
+
 declare var M:any;
 @Component({
   selector: 'app-vehicles',
@@ -9,11 +11,21 @@ declare var M:any;
   styleUrls: ['./vehicles.component.css']
 })
 export class VehiclesComponent implements OnInit {
-
-  constructor(private vehicleService:VehiclesService) { }
+  form: FormGroup;
+  constructor(private vehicleService:VehiclesService,public formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getVehicles();
+    this.form=this.formBuilder.group({
+      marc:["",[Validators.required,Validators.minLength(2)]],
+      brand:["",[Validators.required]],
+      model:["",Validators.required],
+      type:["",Validators.required],
+      color:["",Validators.required]
+    })
+  }
+  get errorControl(){
+    return this.form.controls;
   }
   resetForm(form: NgForm) {
     if (form) {
@@ -30,6 +42,10 @@ export class VehiclesComponent implements OnInit {
     this.vehicleService.selectedVehicle = Vehicle;
   }
   addVehicle(form: NgForm) {
+    if(!this.form.valid){
+      M.toast({ html: "There is some field empty" });
+      return false;
+    }
     if(form.value._id){
       this.vehicleService.editVehicle(form.value).subscribe(res => {
         this.resetForm(form);
@@ -52,4 +68,5 @@ export class VehiclesComponent implements OnInit {
       })
     }
   }
+  
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Sellers } from '../../models/sellers';
 import { SellersService } from '../../services/sellers.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
+import {FormBuilder, Validators } from "@angular/forms";
 declare var M: any;
 @Component({
   selector: 'app-sellers',
@@ -9,11 +10,21 @@ declare var M: any;
   styleUrls: ['./sellers.component.css']
 })
 export class SellersComponent implements OnInit {
-
-  constructor(private sellerService:SellersService) { }
+  form: FormGroup;
+  constructor(private sellerService:SellersService,public formBuilder:FormBuilder) { }
 
   ngOnInit() {
     this.getSellers();
+    this.form=this.formBuilder.group({
+      name:["",[Validators.required, Validators.minLength(2),Validators.pattern("[a-z]+/i")]],
+      surname:["",[Validators.required, Validators.minLength(2),Validators.pattern("[a-z]+/i")]],
+      email:['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      rank:["",[Validators.required]],
+      phoneNumber:["",[Validators.required,Validators.maxLength(9),Validators.pattern("\d{9}")]]
+    })
+  }
+  get errorControl() {
+    return this.form.controls;
   }
   resetForm(form: NgForm) {
     if (form) {
@@ -30,6 +41,10 @@ export class SellersComponent implements OnInit {
     this.sellerService.selectedSeller = seller;
   }
   addSeller(form: NgForm) {
+    if (!this.form.valid) {
+      M.toast({ html: "Fields empty" });
+      return false;
+    }
     if(form.value._id){
       this.sellerService.editSeller(form.value).subscribe(res => {
         this.resetForm(form);

@@ -1,0 +1,4 @@
+.toast{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,76,1) 0%, rgba(59,205,108,1) 47%, rgba(39,138,8,1) 80%);
+}

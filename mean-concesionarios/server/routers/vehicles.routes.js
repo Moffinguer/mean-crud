@@ -3,7 +3,7 @@ const router = express.Router();
 const vehicleController = require("../controllers/vehicles.controllers");
 
 router.get("/", vehicleController.getVehicles);
-router.put("/", vehicleController.createVehicle);
+router.post("/", vehicleController.createVehicle);
 router.get("/:id", vehicleController.getVehicleById);
 router.put("/:id", vehicleController.editVehicle);
 router.delete("/:id", vehicleController.deleteVehicle);

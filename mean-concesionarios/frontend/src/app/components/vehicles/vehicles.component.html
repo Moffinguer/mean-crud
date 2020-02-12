@@ -1,69 +1,103 @@
 <div class="container">
-    <div class="row">
-        <div class="col s5">
-            <div class="card">
-                <div class="card-content">
-                    <form #vehicleForm="ngForm" (ngSubmit)="addVehicle(vehicleForm)">
-                        <input type="hidden" name="_id" #_id="ngModel"
-                            [(ngModel)]="vehicleService.selectedVehicle._id" />
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" name="marc" #marc="ngModel"
-                                    [(ngModel)]="vehicleService.selectedVehicle.marc" placeholder="Enter ur marc" />
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="brand" #brand="ngModel"
-                                    [(ngModel)]="vehicleService.selectedVehicle.brand" placeholder="Enter ur brand" />
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="model" #model="ngModel"
-                                    [(ngModel)]="vehicleService.selectedVehicle.model" placeholder="Enter ur model" />
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="color" #color="ngModel"
-                                    [(ngModel)]="vehicleService.selectedVehicle.color" placeholder="Enter ur color" />
-                            </div>
-                            <div class="input-field col s12">
-                                <input type="text" name="type" #type="ngModel"
-                                    [(ngModel)]="vehicleService.selectedVehicle.type" placeholder="Enter ur type" />
-                            </div>
-                            <div class="card-action">
-                                <div class="input-field col s12">
-                                    <button class="btn" (click)="resetForm(vehicleForm)">
-                                        Clean
-                                    </button>
-                                    <button class="btn right">Save</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #vehicleForm="ngForm" (ngSubmit)="addVehicle(vehicleForm)">
+            <input
+              type="hidden"
+              name="_id"
+              #_id="ngModel"
+              [(ngModel)]="vehicleService.selectedVehicle._id"
+            />
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  name="marc"
+                  #marc="ngModel"
+                  [(ngModel)]="vehicleService.selectedVehicle.marc"
+                  placeholder="Enter ur marc"
+                />
+              </div>
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  name="brand"
+                  #brand="ngModel"
+                  [(ngModel)]="vehicleService.selectedVehicle.brand"
+                  placeholder="Enter ur brand"
+                />
+              </div>
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  name="model"
+                  #model="ngModel"
+                  [(ngModel)]="vehicleService.selectedVehicle.model"
+                  placeholder="Enter ur model"
+                />
+              </div>
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  name="color"
+                  #color="ngModel"
+                  [(ngModel)]="vehicleService.selectedVehicle.color"
+                  placeholder="Enter ur color"
+                />
+              </div>
+              <div class="input-field col s12">
+                <input
+                  type="text"
+                  name="type"
+                  #type="ngModel"
+                  [(ngModel)]="vehicleService.selectedVehicle.type"
+                  placeholder="Enter ur type"
+                />
+              </div>
+              <div class="card-action">
+                <div class="input-field col s12">
+                  <button class="btn" (click)="resetForm(vehicleForm)">
+                    Clean
+                  </button>
+                  <button class="btn right">Save</button>
                 </div>
+              </div>
             </div>
+          </form>
         </div>
-        <div class="col s7">
-            <table>
-                <thead>
-                    <th>Marc</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Color</th>
-                    <th>Type</th>
-                    <th>Edit/Delete</th>
-                </thead>
-            </table>
-            <div *ngFor="let vehicle of vehicleService.vehicle">
-                <tbody>
-                    <td>{{vehicle.marc}}</td>
-                    <td>{{vehicle.brand}}</td>
-                    <td>{{vehicle.color}}</td>
-                    <td>{{vehicle.type}}</td>
-                    <td><a (click)="editVehicle(vehicle)">
-                            <i class="material-icons">edit</i>
-                        </a><a (click)="deleteVehicle(vehicle._id)">
-                            <i class="material-icons">delete</i>
-                        </a>
-                </tbody>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <tr>
+            <th>Marc</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Type</th>
+            <th>Edit/Delete</th>
+          </tr>
+        </thead>
+      </table>
+        <tbody>
+          <tr *ngFor="let vehicle of vehicleService.vehicle">
+            <td>{{ vehicle.marc }}</td>
+            <td>{{ vehicle.brand }}</td>
+            <td>{{ vehicle.model }}</td>
+            <td>{{ vehicle.color }}</td>
+            <td>{{ vehicle.type }}</td>
+            <td>
+                <a (click)="editVehicle(vehicle)">
+                  <i class="material-icons">edit</i> </a
+                ><a (click)="deleteVehicle(vehicle._id)">
+                  <i class="material-icons">delete</i>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+    </div>
+  </div>
 </div>

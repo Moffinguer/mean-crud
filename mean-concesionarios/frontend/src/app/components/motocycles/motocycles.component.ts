@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Motocycles } from '../../models/motocycles';
 import { MotocyclesService } from '../../services/motocycles.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
+import {FormBuilder, Validators } from "@angular/forms";
 declare var M:any;
 @Component({
   selector: 'app-motocycles',
@@ -9,11 +10,18 @@ declare var M:any;
   styleUrls: ['./motocycles.component.css']
 })
 export class MotocyclesComponent implements OnInit {
-
-  constructor(private motocyclesService:MotocyclesService) { }
+  form: FormGroup;
+  constructor(private motocyclesService:MotocyclesService,public formBuilder:FormBuilder) { }
 
   ngOnInit() {
     this.getMotocycles();
+    this.form=this.formBuilder.group({
+      idMoto:["",[Validators.required]],
+      wheels:["",[Validators.pattern("\d+"),Validators.required]]
+    })
+  }
+  get errorControl() {
+    return this.form.controls;
   }
   resetForm(form: NgForm) {
     if (form) {
@@ -30,6 +38,10 @@ export class MotocyclesComponent implements OnInit {
     this.motocyclesService.selectedMotocycle = seller;
   }
   addMotocycle(form: NgForm) {
+    if (!this.form.valid) {
+      M.toast({ html: "Fields empty" });
+      return false;
+    }
     if(form.value._id){
       this.motocyclesService.editMoto(form.value).subscribe(res => {
         this.resetForm(form);
