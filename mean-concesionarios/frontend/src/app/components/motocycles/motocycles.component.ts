@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Motocycles } from '../../models/motocycles';
 import { MotocyclesService } from '../../services/motocycles.service';
 import { NgForm, FormGroup } from '@angular/forms';
-import {FormBuilder, Validators } from "@angular/forms";
+
 declare var M:any;
 @Component({
   selector: 'app-motocycles',
@@ -11,14 +11,10 @@ declare var M:any;
 })
 export class MotocyclesComponent implements OnInit {
   form: FormGroup;
-  constructor(private motocyclesService:MotocyclesService,public formBuilder:FormBuilder) { }
+  constructor(private motocyclesService:MotocyclesService) { }
 
   ngOnInit() {
     this.getMotocycles();
-    this.form=this.formBuilder.group({
-      idMoto:["",[Validators.required]],
-      wheels:["",[Validators.pattern("\d+"),Validators.required]]
-    })
   }
   get errorControl() {
     return this.form.controls;

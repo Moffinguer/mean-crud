@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Vehicles } from '../../models/vehicles';
 import { VehiclesService } from '../../services/vehicles.service';
 import { NgForm, FormGroup } from '@angular/forms';
-import {FormBuilder, Validators } from "@angular/forms";
-
 declare var M:any;
 @Component({
   selector: 'app-vehicles',
@@ -12,17 +10,10 @@ declare var M:any;
 })
 export class VehiclesComponent implements OnInit {
   form: FormGroup;
-  constructor(private vehicleService:VehiclesService,public formBuilder: FormBuilder) { }
+  constructor(private vehicleService:VehiclesService) { }
 
   ngOnInit() {
     this.getVehicles();
-    this.form=this.formBuilder.group({
-      marc:["",[Validators.required,Validators.minLength(2)]],
-      brand:["",[Validators.required]],
-      model:["",Validators.required],
-      type:["",Validators.required],
-      color:["",Validators.required]
-    })
   }
   get errorControl(){
     return this.form.controls;
