@@ -35,8 +35,9 @@
                     <th>Edit/Delete</th>
                 </thead>
             </table>
-            <div *ngFor="let car of carsService.car">
+            
                 <tbody>
+                    <tr *ngFor="let car of carsService.car">
                     <td>{{car.idCar}}</td>
                     <td>{{car.doors}}</td>
                     <td><a (click)="editCar(car)">
@@ -44,8 +45,8 @@
                         </a><a (click)="deleteCar(car._id)">
                             <i class="material-icons">delete</i>
                         </a></td>
+                    </tr>
                 </tbody>
-            </div>
         </div>
     </div>
 </div>

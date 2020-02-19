@@ -51,8 +51,8 @@
                     <th>Edit/Delete</th>
                 </thead>
             </table>
-            <div *ngFor="let seller of sellerService.seller">
                 <tbody>
+                    <tr *ngFor="let seller of sellerService.seller">
                     <td>{{seller.name}}</td>
                     <td>{{seller.surname}}</td>
                     <td>{{seller.rank}}</td>
@@ -64,8 +64,8 @@
                             <i class="material-icons">delete</i>
                         </a>
                         </td>
+                    </tr>
                 </tbody>
-            </div>
         </div>
     </div>
 </div>

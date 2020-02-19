@@ -1,7 +1,34 @@
 <h2>BIENVENIDOS</h2>
 <h3>MUEVASE POR EL RESTO DE MENUS PARA EDITAR EN NUESTRO CONCESIONARIO.</h3>
 <h4>Aquí abajo puede ver datos de otras marcas importantes</h4>
-<select name="car-years" id="car-years"></select>  
-<select name="car-makes" id="car-makes"></select> 
-<select name="car-models" id="car-models"></select>
-<select name="car-model-trims" id="car-model-trims"></select>  
+<table>
+    <thead>
+        <th>Pais</th>
+        <th>Creada en</th>
+        <th>Vendido por primera vez</th>
+        <th>Empresa</th>
+        <th>Tipo de vehículo</th>
+        <th>Actualizado en</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let newCar of apiExt.apiret">
+            <td> {{newCar.Country==null?"Desconocido":newCar.Country}}
+            </td>
+            <td>
+                {{newCar.CreatedOn}}
+            </td>
+            <td>
+                {{newCar.DateAvailableToPublic}}
+            </td>
+            <td>
+                {{newCar.Name}}
+            </td>
+            <td>
+                {{newCar.VehicleType}}
+            </td>
+            <td>
+                {{newCar.UpdateOn==null?"Sin registros":newCar.UpdateOn}}
+            </td>
+        </tr>
+    </tbody>
+</table>

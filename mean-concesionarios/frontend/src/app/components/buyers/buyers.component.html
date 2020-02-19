@@ -62,8 +62,8 @@
                     <th>Edit/Delete</th>
                 </thead>
             </table>
-            <div *ngFor="let buyer of buyerService.buyers">
                 <tbody>
+                    <tr *ngFor="let buyer of buyerService.buyers">
                     <td>{{buyer.name}},{{ buyer.surname}}</td>
                     <td>{{buyer.idSeller}}</td>
                     <td>{{buyer.email}}</td>
@@ -75,8 +75,8 @@
                         </a><a (click)="deleteBuyer(buyer._id)">
                             <i class="material-icons">delete</i>
                         </a></td>
+                    </tr>
                 </tbody>
-            </div>
         </div>
     </div>
 </div>
