@@ -1,10 +1,29 @@
-.toast{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,255,76,1) 0%, rgba(59,205,108,1) 47%, rgba(39,138,8,1) 80%);
+.toast {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 255, 76, 1) 0%,
+    rgba(59, 205, 108, 1) 47%,
+    rgba(39, 138, 8, 1) 80%
+  );
 }
-nav{
-    background: gray !important;
+nav {
+  background: gray !important;
 }
-button{
-    background: red !important;
+button {
+  background: red !important;
+}
+body {
+  background: url("assets/bg.jpg");
+  color: white;
+}
+table {
+  background: #222f3e !important;
+}
+input {
+  color: #54a0ff !important;
+}
+::placeholder {
+  color: #2c3a47;
 }

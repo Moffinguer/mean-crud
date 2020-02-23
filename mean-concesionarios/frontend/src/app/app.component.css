@@ -1,0 +1,22 @@
+label {
+  color: white;
+}
+.btn {
+  background: red !important;
+  color: white !important;
+  border-bottom-left-radius: 10% !important;
+  border-bottom-right-radius: 10% !important;
+  border-top-left-radius: 10% !important;
+  border-top-right-radius: 10% !important;
+}
+::placeholder {
+  color: black;
+}
+input {
+  color: #6a89cc !important;
+}
+form {
+  background: #636e72 !important;
+  border-top-left-radius: 10% !important;
+  border-top-right-radius: 10% !important;
+}

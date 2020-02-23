@@ -4,57 +4,27 @@
       <div class="card">
         <div class="card-content">
           <form #vehicleForm="ngForm" (ngSubmit)="addVehicle(vehicleForm)">
-            <input
-              type="hidden"
-              name="_id"
-              #_id="ngModel"
-              [(ngModel)]="vehicleService.selectedVehicle._id"
-            />
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="vehicleService.selectedVehicle._id" />
             <div class="row">
               <div class="input-field col s12">
-                <input
-                  type="text"
-                  name="marc"
-                  #marc="ngModel"
-                  [(ngModel)]="vehicleService.selectedVehicle.marc"
-                  placeholder="Enter ur marc"
-                />
+                <input type="text" name="marc" #marc="ngModel" [(ngModel)]="vehicleService.selectedVehicle.marc"
+                  placeholder="Enter ur marc" />
               </div>
               <div class="input-field col s12">
-                <input
-                  type="text"
-                  name="brand"
-                  #brand="ngModel"
-                  [(ngModel)]="vehicleService.selectedVehicle.brand"
-                  placeholder="Enter ur brand"
-                />
+                <input type="text" name="brand" #brand="ngModel" [(ngModel)]="vehicleService.selectedVehicle.brand"
+                  placeholder="Enter ur brand" />
               </div>
               <div class="input-field col s12">
-                <input
-                  type="text"
-                  name="model"
-                  #model="ngModel"
-                  [(ngModel)]="vehicleService.selectedVehicle.model"
-                  placeholder="Enter ur model"
-                />
+                <input type="text" name="model" #model="ngModel" [(ngModel)]="vehicleService.selectedVehicle.model"
+                  placeholder="Enter ur model" />
               </div>
               <div class="input-field col s12">
-                <input
-                  type="text"
-                  name="color"
-                  #color="ngModel"
-                  [(ngModel)]="vehicleService.selectedVehicle.color"
-                  placeholder="Enter ur color"
-                />
+                <input type="text" name="color" #color="ngModel" [(ngModel)]="vehicleService.selectedVehicle.color"
+                  placeholder="Enter ur color" />
               </div>
               <div class="input-field col s12">
-                <input
-                  type="text"
-                  name="type"
-                  #type="ngModel"
-                  [(ngModel)]="vehicleService.selectedVehicle.type"
-                  placeholder="Enter ur type"
-                />
+                <input type="text" name="type" #type="ngModel" [(ngModel)]="vehicleService.selectedVehicle.type"
+                  placeholder="Enter ur type" />
               </div>
               <div class="card-action">
                 <div class="input-field col s12">
@@ -81,7 +51,6 @@
             <th>Edit/Delete</th>
           </tr>
         </thead>
-      </table>
         <tbody>
           <tr *ngFor="let vehicle of vehicleService.vehicle">
             <td>{{ vehicle.marc }}</td>
@@ -90,14 +59,14 @@
             <td>{{ vehicle.color }}</td>
             <td>{{ vehicle.type }}</td>
             <td>
-                <a (click)="editVehicle(vehicle)">
-                  <i class="material-icons">edit</i> </a
-                ><a (click)="deleteVehicle(vehicle._id)">
-                  <i class="material-icons">delete</i>
-                </a>
+              <a (click)="editVehicle(vehicle)">
+                <i class="material-icons">edit</i> </a><a (click)="deleteVehicle(vehicle._id)">
+                <i class="material-icons">delete</i>
+              </a>
             </td>
           </tr>
         </tbody>
+      </table>
     </div>
   </div>
 </div>

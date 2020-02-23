@@ -38,7 +38,6 @@ export class AppComponent {
       response => {
         const identity = response["user"];
         this.identity = identity;
-        console.log(this.token);
         if (this.token != null) {
           //!this.identity._id
           M.toast({ html: "Ok Login" });

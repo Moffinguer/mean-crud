@@ -61,22 +61,22 @@
                     <th>idVehicle</th>
                     <th>Edit/Delete</th>
                 </thead>
-            </table>
                 <tbody>
                     <tr *ngFor="let buyer of buyerService.buyers">
-                    <td>{{buyer.name}},{{ buyer.surname}}</td>
-                    <td>{{buyer.idSeller}}</td>
-                    <td>{{buyer.email}}</td>
-                    <td>{{buyer.dni}}</td>
-                    <td>{{buyer.phoneNumber}}</td>
-                    <td>{{buyer.idVehicleToBuy}}</td>
-                    <td><a (click)="editBuyer(buyer)">
-                            <i class="material-icons">edit</i>
-                        </a><a (click)="deleteBuyer(buyer._id)">
-                            <i class="material-icons">delete</i>
-                        </a></td>
+                        <td>{{buyer.name}},{{ buyer.surname}}</td>
+                        <td>{{buyer.idSeller}}</td>
+                        <td>{{buyer.email}}</td>
+                        <td>{{buyer.dni}}</td>
+                        <td>{{buyer.phoneNumber}}</td>
+                        <td>{{buyer.idVehicleToBuy}}</td>
+                        <td><a (click)="editBuyer(buyer)">
+                                <i class="material-icons">edit</i>
+                            </a><a (click)="deleteBuyer(buyer._id)">
+                                <i class="material-icons">delete</i>
+                            </a></td>
                     </tr>
                 </tbody>
+            </table>
         </div>
     </div>
 </div>
