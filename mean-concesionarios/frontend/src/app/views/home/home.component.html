@@ -11,6 +11,7 @@
         <th>Actualizado en</th>
     </thead>
     <tbody>
+        <!-- Nos traemos un servicio web mirar en el archivo home.component -->
         <tr *ngFor="let newCar of apiExt.apiret">
             <td> {{newCar.Country==null?"Desconocido":newCar.Country}}
             </td>

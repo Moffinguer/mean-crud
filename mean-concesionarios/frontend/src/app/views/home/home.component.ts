@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
     this.getApi(this.apiExt);
   }
   getApi(apiExt) {
+    //Extraemos un observador y lo filtramos para obtener un json de un Json, tras eso lo 
     const myObserver = {
       next: function(x) {
         const coches = JSON.parse(JSON.stringify(x)).Results;

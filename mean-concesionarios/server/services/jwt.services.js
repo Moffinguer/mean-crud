@@ -3,8 +3,8 @@ const moment = require("moment");
 
 var secret = "clave_secreta"; //Clave secreta app
 var jwtService = {};
-
-jwtService.createToken = (user) => {
+//Creamos un token securizado con nuestra clave secreta con los datos de nuestro administrador o usuario correspondiente
+jwtService.createToken = user => {
   var payload = {
     sub: user._id,
     name: user.name,
@@ -12,8 +12,10 @@ jwtService.createToken = (user) => {
     email: user.email,
     role: user.role,
     image: user.image,
-    exp: moment().add(30, "day").unix(), 
-    iat: moment().unix() 
+    exp: moment()
+      .add(30, "day")
+      .unix(),
+    iat: moment().unix()
   };
   return jwt.encode(payload, secret);
 };
